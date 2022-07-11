@@ -1,0 +1,9 @@
+.center{
+    text-align: center;
+}
+td{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 6px;
+    border: 1px solid grey;
+    text-align: center ;
+}
