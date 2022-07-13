@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Constructor</title>
+</head>
+<body>
+    <h1> Object Constructor </h1>
+    <script>
+        //constructor function for creating employee objects
+        employee = function(empCode,empName,salary){
+                    this.empCode = empCode;
+                    this.empName = empName;
+                    this.salary = salary;
+                }
+        emp1 = new employee(1,'saumya',67788);
+        emp2 = new employee(2,'vivek',89987);
+
+        employees = []
+        employees.push(emp1);
+        employees.push(emp2);
+       
+
+        employee.prototype.getBonus =function(){
+            return ((this.salary)/2);
+        };
+        emp3 = new employee(3,'tharun',87876);
+        employees.push(emp3);
+        for(emp of employees){
+            console.log(emp.getBonus());
+        }
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Order Functions</title>
+</head>
+<body>
+    <h1>
+        For .. Each , Map, Filter, Reduce
+    </h1>
+    <script>
+        marks = [34,56,76,78,21];
+        //for each with regular function
+        function grace(mark){
+            mark +=2;
+        }
+        marks.forEach(grace);
+
+        //for each with arrow function
+        marks.forEach(mark => mark-2);
+
+        //map function
+        
+        doubledMarks = marks.map(mark => mark*2); // will return a new array, no changes will be made to the original array
+
+        console.log("original marks "+ marks);
+
+        console.log("doubled marks",doubledMarks);
+
+        //filter function
+
+        passed = marks.filter(mark => mark>=33);
+        console.log("passed in "+passed);
+
+        //reduce function
+
+        sum=marks.reduce((total,mark) => total+mark);
+        console.log("total = "+sum);
+
+        //it is same as
+        // sum = 0;
+        // for(ele of marks){
+        //     sum+=ele
+        // }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <h1>Intro to Arrays in JavaScript</h1>
+    <script>
+        fruits = [];
+        fruits.push('Apple');
+        fruits.push('Banana');
+        fruits.push('Mango');
+        fruits.push('Orange');
+
+        //displaying the elements using normal for loop
+        for(i=0;i<fruits.length;i++){
+            console.log(fruits[i]);
+        }
+
+        //updating an element
+        fruits[3]='Pineapple';
+
+        for(fruit of fruits){
+            console.log(fruit);
+        }
+
+
+        //removing the last element
+        fruits.pop()
+
+        for(fruit of fruits){
+            console.log(fruit);
+        }
+
+        //joins the array as a string with , by default if nothing is specified
+        console.log("My favourite fruits are "+fruits.join());
+
+        //shift method - removes the first element of array and "shifts" all elements to  a lower index
+        console.log(fruits.shift())
+
+         //unshift method - adds the specified element as the first element of array and "unshifts" all previous elements 
+         fruits.unshift("Tomato")
+
+
+    </script>
+</body>
+</html>

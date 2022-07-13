@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Master</title>
+</head>
+<body>
+    <h1> Employee Master</h1>
+    <label for="empcode"></label>
+    <input type="text" name="empcode" id="empcode"> <br>
+    <label for="empanme"></label>
+    <input type="text" name="empname" id="empname"> <br>
+    <label for="salary"></label>
+    <input type="number" name="salary" id="salary"> <br>
+    <input type="button" value="Add Employee" id = "add" onclick="addEmployee()">
+    <input type="button" value="Display Employees" id = "display" onclick="displayEmployees()">
+
+    <table id = "empdata"></table>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>
