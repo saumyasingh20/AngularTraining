@@ -1,0 +1,94 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDos Display</title>
+    </head>
+
+    <body onload="getTodos()">
+    <h1>ToDo List</h1>
+    <input type="text" name="userId" id="userId" placeholder="User ID">
+    <input type="text" name="todoID" id="todoID" placeholder="ID">
+    <input type="text" name="title" id="title" placeholder="Title">
+    <input type="button" value="Add to ToDo List" onclick="addTodo()">
+    <input type="button" value="Display ToDo List" onclick="displayData()">
+
+    <table id="display"></table>
+
+    <script>
+    todoList = [];
+
+    function getTodos() {
+        url = 'https://jsonplaceholder.typicode.com/todos';
+        fetch(url).then(response => response.json()).then(json => todoList = json);
+    }
+    function addTodo() {
+
+        userid = document.getElementById('userId').value;
+
+        id = document.getElementById('todoID').value;
+
+        title = document.getElementById('title').value;
+
+        completed = false;
+
+        todo = {
+
+            userId: userid,
+
+            id: id,
+
+            title: title,
+
+            completed: completed
+
+        }
+
+        url = "https://jsonplaceholder.typicode.com/todos"
+        fetch(url,
+        {
+        method: "POST",
+        body: JSON.stringify(todo),
+        headers: {
+        "Content-type": "application/json; charset=UTF-8"
+        }
+        })
+        .then(response => response.json())
+        .then(json => { json.id = todoList.length + 1;
+                        todoList.unshift(json) 
+                      })
+        .catch(reason => console.log(reason))
+
+        document.getElementById('userId').value = '';
+        document.getElementById('todoID').value = '';
+        document.getElementById('title').value = '';
+    }
+    function displayData() {
+
+        data = '<tr><th>User ID</th><th>ID</th><th>Title</th><th>Completed</th></tr>';
+
+        for (todo of todoList) {
+
+            data += `<tr><td>${todo.userId}</td><td>${todo.id}</td><td>${todo.title}</td><td>${todo.completed}</td></tr>`
+
+        }
+
+        document.getElementById('display').innerHTML = data;
+
+    } 
+
+
+
+    </script>
+
+
+
+    </body>
+
+
+
+    </html>
